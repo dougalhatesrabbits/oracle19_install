@@ -14,3 +14,11 @@ groupadd -g 54330 racdba
 
 useradd -u 54321 -g oinstall -G dba,oper,backupdba,dgdba,kmdba,racdba,asmdba,asmoper,asmadmin oracle 
 #useradd -u 54321 -g oinstall -G dba,oper oracle
+
+passwd oracle
+
+cat/etc/selinux/config
+sed -i 's/SELINUX=.*/SELINUX=permissive/g' /etc/selinux/config
+
+systemctl stop firewalld
+systemctl disable firewalld
